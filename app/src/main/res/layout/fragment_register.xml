@@ -10,19 +10,6 @@
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:id="@+id/textViewNom"
-        android:layout_width="60dp"
-        android:layout_height="13dp"
-        android:text="TRAORE"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.235" />
-
-    <TextView
         android:id="@+id/textViewPrenom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,6 +21,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.366" />
+
+    <TextView
+        android:id="@+id/textViewNom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TRAORE"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.24" />
 
     <TextView
         android:id="@+id/textViewMatricule"
@@ -50,7 +49,7 @@
         android:id="@+id/buttonNotification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="notify"
+        android:onClick="NotifyUser"
         android:text="Notify"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

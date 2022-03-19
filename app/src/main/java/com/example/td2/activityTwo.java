@@ -2,12 +2,14 @@ package com.example.td2;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class activityTwo extends AppCompatActivity {
 
@@ -30,6 +32,7 @@ public class activityTwo extends AppCompatActivity {
         setContentView(R.layout.activity_one);
     }
 
+
     private void createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
@@ -46,15 +49,25 @@ public class activityTwo extends AppCompatActivity {
         }
     }
 
-    public void Notify(View view) {
+    public void NotifyUser(View view) {
+        String nom = ((TextView) findViewById(R.id.textViewNom)).getText().toString();
+        String prenom = ((TextView) findViewById(R.id.textViewPrenom)).getText().toString();
+        String matricule = ((TextView) findViewById(R.id.textViewMatricule)).getText().toString();
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 //.setSmallIcon(R.drawable.notification_icon)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setContentTitle("My notification")
-                .setContentText("Much longer text that cannot fit one line...")
+                .setContentTitle("My notification from RegisterFragment")
+                .setContentText("Notification envoyé par " + nom + " " + prenom)
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText("Much longer text that cannot fit one line..."))
+                        .bigText("Notification envoyé par " + nom + " " + prenom + " de matricule : " + matricule))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+
+// notificationId is a unique int for each notification that you must define
+        int notificationId = 1;
+        notificationManager.notify(notificationId, builder.build());
+
     }
 
 }
